@@ -1,0 +1,14 @@
+clear
+
+Get-ChildItem "C:\Users\edson.j\Documents\New folder\" -Filter *.msg |` 
+ForEach-Object{
+$outlook = New-Object -comobject outlook.application
+$msg = $outlook.CreateItemFromTemplate($_.FullName)
+$msg | Select body | Select-String -Pattern "Completion Number: EP-" 
+
+
+} > E:\text.txt
+
+clear
+(Get-Content "E:\file.txt") -match "Completion Number: EP-"
+# (Get-Content "E:\file.txt") -match "189.2.134.112"
