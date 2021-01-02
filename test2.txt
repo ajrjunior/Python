@@ -1,4 +1,0 @@
-$input_path = ‘e:\file.txt’
-$output_file = ‘e:\extracted_ip_addresses.txt’
-$regex = "EP-.*$"
-select-string -Path $input_path -Pattern $regex -AllMatches | % { $_.Matches } | % { $_.Value } > $output_file
